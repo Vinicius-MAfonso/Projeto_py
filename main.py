@@ -1,33 +1,20 @@
 from tkinter import *
-from time import sleep
+import velocidade_de_digitacao
 
+window = Tk()
+window.title("Velocidade de digitação")
 
-def countdown(num_of_secs):
-    contador = num_of_secs
-    while num_of_secs >= 0:
-        contador=contador+1
-        sleep(1)
+window.geometry("500x300+200+200")
+window.resizable(False, False)
+window.iconbitmap("images/icon.ico")
+window['bg'] = "#90e0ef"
 
+entry = Entry(window)
+entry.place(width=200,height = 25, x=155, y=150)
 
-main_menu = Tk()
-main_menu.title("Demencia verifier")
+label = Label(text="Bem vindo ao jogo")
+btn_resetar_tempo = Button(window, text="Resetar o jogo", padx=50, pady=5)
+btn_resetar_tempo.pack(side=BOTTOM, padx=50, pady=50)
 
-main_menu.geometry("500x300+200+200")
-main_menu.resizable(False, False)
-main_menu.iconbitmap("images/icon.ico")
-main_menu['bg'] = "#90e0ef"
-
-# Botão para resetar o tempo
-
-btn_resetar_tempo = Button(main_menu, text="Resetar tempo", command=lambda: countdown(180), anchor="center")
-# cronometro = Label(main_menu, text=countdown(180))
-
-
-# Tamanho quando maximizar -->
-# main_menu.minsize()
-# main_menu.maxsize()
-
-btn_resetar_tempo.pack()
-main_menu.mainloop()
-
-main_menu.colorchooser.chooser()
+window.mainloop()
+window.colorchooser.chooser()
