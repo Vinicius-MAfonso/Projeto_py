@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Projeto_py.iml" filepath="$PROJECT_DIR$/.idea/Projeto_py.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/ATIVIDADES FACULDADE/Atividade Python/aulasfaculdade/.idea/aulasfaculdade.iml" filepath="$USER_HOME$/Desktop/ATIVIDADES FACULDADE/Atividade Python/aulasfaculdade/.idea/aulasfaculdade.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/Fichario Ackley/Aulas/módulos/.idea/módulos.iml" filepath="$USER_HOME$/Desktop/Fichario Ackley/Aulas/módulos/.idea/módulos.iml" />
     </modules>
   </component>
 </project>
