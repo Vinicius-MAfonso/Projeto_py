@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Desktop/YouR.Type-master/.idea/Project.iml" filepath="$USER_HOME$/Desktop/YouR.Type-master/.idea/Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Projeto_py.iml" filepath="$PROJECT_DIR$/.idea/Projeto_py.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/Nova pasta/Speed-Typing-Test-Python-master/Speed Typing Test Python/.idea/Speed Typing Test Python.iml" filepath="$USER_HOME$/Desktop/Nova pasta/Speed-Typing-Test-Python-master/Speed Typing Test Python/.idea/Speed Typing Test Python.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/Speed-Typing-Test-Python-master/.idea/Speed-Typing-Test-Python-master.iml" filepath="$USER_HOME$/Desktop/Speed-Typing-Test-Python-master/.idea/Speed-Typing-Test-Python-master.iml" />
       <module fileurl="file://$USER_HOME$/Desktop/ATIVIDADES FACULDADE/Atividade Python/aulasfaculdade/.idea/aulasfaculdade.iml" filepath="$USER_HOME$/Desktop/ATIVIDADES FACULDADE/Atividade Python/aulasfaculdade/.idea/aulasfaculdade.iml" />
       <module fileurl="file://$USER_HOME$/Desktop/Fichario Ackley/Aulas/módulos/.idea/módulos.iml" filepath="$USER_HOME$/Desktop/Fichario Ackley/Aulas/módulos/.idea/módulos.iml" />
     </modules>

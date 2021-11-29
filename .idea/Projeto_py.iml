@@ -6,6 +6,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="aulasfaculdade" />
     <orderEntry type="module" module-name="módulos" />
+    <orderEntry type="module" module-name="Speed Typing Test Python" />
+    <orderEntry type="module" module-name="Speed-Typing-Test-Python-master" />
+    <orderEntry type="module" module-name="Project" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="pytest" />
