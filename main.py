@@ -1,6 +1,14 @@
 from tkinter import *
-from timeit import default_timer as timer
+from timeit import default_timer as Timer
 import random
+
+run = 1
+
+
+def verificar(run):
+    if run == 1:
+        start.destroy()
+
 
 frases = ['A dúvida já é a resposta',
           'Deixe pra trás o que não te leva pra frente',
@@ -15,16 +23,17 @@ frases = ['A dúvida já é a resposta',
           'Meu presente preferido é chocolate',
           'Apenas para sua informação',
           'O meu navegador favorito',
-          'Esta é uma ideia muito boa',
-          ]
+          'Esta é uma ideia muito boa']
 
 
 def game():
-    start = timer()
+    verificar(run=1)
+    timer = Timer()
+
     def func(event):
         if entry.get() == frases[word]:
-            end = timer()
-            resultados(end - start)
+            end = Timer()
+            resultados(end - timer)
         else:
             print("Wrong Input")
 
@@ -37,7 +46,7 @@ def game():
 
     word = random.randint(0, (len(frases) - 1))
 
-    start = timer()
+    timer = Timer()
 
     sorteado = Label(root, text=frases[word], font="arial 13", bg="white", justify=LEFT)
     sorteado.place(width=300, height=25, x=95, y=80)
@@ -48,18 +57,18 @@ def game():
     entry = Entry(root, font="arial 15")
     entry.place(width=280, height=25, x=100, y=200)
     func(entry)
-    # Botão enter
     root.bind('<Return>', func)
-    # Dica
     lb_dica = Label(root, text="Pressione 'enter' \npara confirmar a palavra!", font="times 10", bg="#023e8a",
                     fg="white")
     lb_dica.place(x=170, y=250)
-
     root.mainloop()
 
 
+def sair():
+    start.destroy()
+
+
 def resultados(tempo):
-    start.quit()
     niveis = ['Bom', 'Mediano', 'Ruim']
     if tempo < 6:
         resultado = niveis[0]
@@ -91,7 +100,6 @@ def resultados(tempo):
     btn_resetar_tempo = Button(resultados, text="Resetar o jogo", font="arial 10", padx=15, pady=5,
                                bg='#caf0f8', command=game)
     btn_resetar_tempo.place(x=80, y=150)
-
     resultados.mainloop()
 
 
@@ -105,8 +113,12 @@ start['bg'] = "#023e8a"
 lb_titulo = Label(start, text="Teste sua velocidade para digitar!", font="times 20", bg="#0077b6", fg="white", )
 lb_titulo.place(x=65, y=25)
 
-btn_resetar_tempo = Button(start, text="Comece o jogo", font="arial 10", padx=15, pady=5,
-                           bg='#caf0f8', command=game)
-btn_resetar_tempo.place(x=180, y=90)
+btn_start = Button(start, text="Comece o jogo", font="arial 10", padx=15, pady=5,
+                   bg='#caf0f8', command=game)
+btn_start.place(x=100, y=90)
+
+btn_resetar_tempo = Button(start, text="Sair do jogo", font="arial 10", padx=15, pady=5,
+                           bg='#caf0f8', command=sair)
+btn_resetar_tempo.place(x=280, y=90)
 
 start.mainloop()
