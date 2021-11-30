@@ -27,7 +27,6 @@ frases = ['A dúvida já é a resposta',
 
 
 def game():
-    verificar(run=1)
     timer = Timer()
 
     def func(event):
@@ -62,6 +61,8 @@ def game():
                     fg="white")
     lb_dica.place(x=170, y=250)
     root.mainloop()
+    return root
+
 
 
 def sair():
@@ -69,6 +70,7 @@ def sair():
 
 
 def resultados(tempo):
+    resultados = Tk()
     niveis = ['Bom', 'Mediano', 'Ruim']
     if tempo < 6:
         resultado = niveis[0]
@@ -76,7 +78,6 @@ def resultados(tempo):
         resultado = niveis[1]
     else:
         resultado = niveis[2]
-    resultados = Tk()
     resultados.title("Velocidade de digitação")
     resultados.geometry("300x200+200+200")
     resultados.resizable(False, False)
@@ -97,9 +98,9 @@ def resultados(tempo):
 
     lb_time_result = Label(resultados, text=tempo, font="times 12", fg="white", bg="#023e8a")
     lb_time_result.place(x=110, y=80)
-    btn_resetar_tempo = Button(resultados, text="Resetar o jogo", font="arial 10", padx=15, pady=5,
-                               bg='#caf0f8', command=game)
-    btn_resetar_tempo.place(x=80, y=150)
+    btn_resetar_jogo = Button(resultados, text="Resetar o jogo", font="arial 10", padx=15, pady=5,
+                              bg='#caf0f8', command=lambda: [game().destroy()])
+    btn_resetar_jogo.place(x=80, y=150)
     resultados.mainloop()
 
 
@@ -114,11 +115,11 @@ lb_titulo = Label(start, text="Teste sua velocidade para digitar!", font="times 
 lb_titulo.place(x=65, y=25)
 
 btn_start = Button(start, text="Comece o jogo", font="arial 10", padx=15, pady=5,
-                   bg='#caf0f8', command=game)
+                   bg='#caf0f8', command=lambda: [start.destroy(), game()])
 btn_start.place(x=100, y=90)
 
-btn_resetar_tempo = Button(start, text="Sair do jogo", font="arial 10", padx=15, pady=5,
-                           bg='#caf0f8', command=sair)
-btn_resetar_tempo.place(x=280, y=90)
+btn_sair = Button(start, text="Sair do jogo", font="arial 10", padx=15, pady=5,
+                  bg='#caf0f8', command=lambda: sair)
+btn_sair.place(x=280, y=90)
 
 start.mainloop()
