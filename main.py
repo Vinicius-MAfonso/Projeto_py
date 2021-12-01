@@ -1,40 +1,19 @@
 from tkinter import *
 from timeit import default_timer as Timer
 import random
-
-run = 1
-
-
-def verificar(run):
-    if run == 1:
-        start.destroy()
+from palavras import frases
 
 
-frases = ['A dúvida já é a resposta',
-          'Deixe pra trás o que não te leva pra frente',
-          'Se for pra desistir, desista de ser fraco',
-          'Aqui se faz, aqui se paga',
-          'Sem sacrifício, não há vitória',
-          'Você é o que escolhe ser',
-          'Gel de cabelo é muito gorduroso',
-          'O Feitiço das Gêmeas',
-          'Popularidade é desejada por todos',
-          'Eu sou alérgico a abelhas e amendoins',
-          'Meu presente preferido é chocolate',
-          'Apenas para sua informação',
-          'O meu navegador favorito',
-          'Esta é uma ideia muito boa']
+def sair():
+    start.destroy()
+
+
+def sair_game(event):
+    game.destroy()
 
 
 def game():
     timer = Timer()
-
-    def func(event):
-        if entry.get() == frases[word]:
-            end = Timer()
-            resultados(end - timer)
-        else:
-            print("Wrong Input")
 
     root = Tk()
     root.title("Velocidade de digitação")
@@ -53,6 +32,14 @@ def game():
     lb_titulo = Label(root, text="Comece a digitar!", font="times 20", bg="#0077b6", fg="white", )
     lb_titulo.place(x=145, y=25)
 
+    def func(event):
+        if entry.get() == frases[word]:
+            end = Timer()
+            resultados(end - timer)
+
+        elif entry.get() != frases[word]:
+            print("Palavra errada!")
+
     entry = Entry(root, font="arial 15")
     entry.place(width=280, height=25, x=100, y=200)
     func(entry)
@@ -61,13 +48,18 @@ def game():
                     fg="white")
     lb_dica.place(x=170, y=250)
     root.mainloop()
-    return root
 
 
-
-def sair():
-    start.destroy()
-
+# def erro():
+#     error = Tk()
+#     error.title("Velocidade de digitação")
+#     error.geometry("200x80+340+250")
+#     error.resizable(False, False)
+#     error.iconbitmap("images/icon.ico")
+#     lb_error_mensage = Button(error, text="Palavra errada", font="arial 15", bg="#0077b6", fg="white",
+#                               command=lambda: [error.destroy(),game(), game()])
+#     lb_error_mensage.place(x=30, y=25)
+#     error.mainloop()
 
 def resultados(tempo):
     resultados = Tk()
@@ -99,7 +91,7 @@ def resultados(tempo):
     lb_time_result = Label(resultados, text=tempo, font="times 12", fg="white", bg="#023e8a")
     lb_time_result.place(x=110, y=80)
     btn_resetar_jogo = Button(resultados, text="Resetar o jogo", font="arial 10", padx=15, pady=5,
-                              bg='#caf0f8', command=lambda: [game().destroy()])
+                              bg='#caf0f8', command=lambda: [sair_game()])
     btn_resetar_jogo.place(x=80, y=150)
     resultados.mainloop()
 
@@ -119,7 +111,7 @@ btn_start = Button(start, text="Comece o jogo", font="arial 10", padx=15, pady=5
 btn_start.place(x=100, y=90)
 
 btn_sair = Button(start, text="Sair do jogo", font="arial 10", padx=15, pady=5,
-                  bg='#caf0f8', command=lambda: sair)
+                  bg='#caf0f8', command=sair)
 btn_sair.place(x=280, y=90)
 
 start.mainloop()
