@@ -38,8 +38,7 @@ def game():
             resultado = niveis[0]
             if tempo < menorTempo:
                 menorTempo = tempo
-                leaderboard = open("leaderBoard.txt", "w")
-                leaderboard.write("################################################################")
+                leaderboard = open("leaderBoard.txt", "a")
                 leaderboard.write(str("\n\n\n TOP 1 SCORE AT: " + str(datetime.datetime.now()) + " IS: " + str(tempo) + " \n\n\n"))
                 leaderboard.write("################################################################")
                 leaderboard.close()
@@ -47,8 +46,7 @@ def game():
             resultado = niveis[1]
             if tempo < menorTempo:
                 menorTempo = tempo
-                leaderboard = open("leaderBoard.txt", "w")
-                leaderboard.write("################################################################")
+                leaderboard = open("leaderBoard.txt", "a")
                 leaderboard.write(str("\n\n\n TOP 1 SCORE AT: " + str(datetime.datetime.now()) + " IS: " + str(tempo) + "\n\n\n"))
                 leaderboard.write("################################################################")
                 leaderboard.close()
@@ -56,8 +54,7 @@ def game():
             resultado = niveis[2]
             if tempo < menorTempo:
                 menorTempo = tempo
-                leaderboard = open("leaderBoard.txt", "w")
-                leaderboard.write("################################################################")
+                leaderboard = open("leaderBoard.txt", "a")
                 leaderboard.write(str("\n\n\n TOP 1 SCORE AT: " + str(datetime.datetime.now()) + " IS: " + str(tempo) + "\n\n\n"))
                 leaderboard.write("################################################################")
                 leaderboard.close()
