@@ -1,8 +1,28 @@
 from tkinter import *
 from timeit import default_timer as Timer
 import random
-from palavras import frases
+import datetime
 
+
+frases = ['A dúvida já é a resposta',
+          'Deixe pra trás o que não te leva pra frente',
+          'Se for pra desistir, desista de ser fraco',
+          'Aqui se faz, aqui se paga',
+          'Sem sacrifício, não há vitória',
+          'Você é o que escolhe ser',
+          'Gel de cabelo é muito gorduroso',
+          'O Feitiço das Gêmeas',
+          'Popularidade é desejada por todos',
+          'Eu sou alérgico a abelhas e amendoins',
+          'Meu presente preferido é chocolate',
+          'Apenas para sua informação',
+          'O meu navegador favorito',
+          'Esta é uma ideia muito boa']
+
+arquivo = open("meuArquivo.txt", "w")
+for i in frases:
+    arquivo.write(i+"\n")
+arquivo.close()
 
 def sair():
     start.destroy()
@@ -11,14 +31,36 @@ def sair():
 def game():
 
     def resultados(tempo):
-
+        
+        menorTempo = 100
         niveis = ['Bom', 'Mediano', 'Ruim']
         if tempo < 6:
             resultado = niveis[0]
-        elif tempo >= 6 or tempo < 10:
+            if tempo < menorTempo:
+                menorTempo = tempo
+                leaderboard = open("leaderBoard.txt", "w")
+                leaderboard.write("################################################################")
+                leaderboard.write(str("\n\n\n TOP 1 SCORE AT: " + str(datetime.datetime.now()) + " IS: " + str(tempo) + " \n\n\n"))
+                leaderboard.write("################################################################")
+                leaderboard.close()
+        elif tempo >= 6 and tempo < 10:
             resultado = niveis[1]
+            if tempo < menorTempo:
+                menorTempo = tempo
+                leaderboard = open("leaderBoard.txt", "w")
+                leaderboard.write("################################################################")
+                leaderboard.write(str("\n\n\n TOP 1 SCORE AT: " + str(datetime.datetime.now()) + " IS: " + str(tempo) + "\n\n\n"))
+                leaderboard.write("################################################################")
+                leaderboard.close()
         else:
             resultado = niveis[2]
+            if tempo < menorTempo:
+                menorTempo = tempo
+                leaderboard = open("leaderBoard.txt", "w")
+                leaderboard.write("################################################################")
+                leaderboard.write(str("\n\n\n TOP 1 SCORE AT: " + str(datetime.datetime.now()) + " IS: " + str(tempo) + "\n\n\n"))
+                leaderboard.write("################################################################")
+                leaderboard.close()
 
         lb_result = Label(root, text="Resultado geral:", font="times 12", fg="white", bg="#023e8a")
         lb_result.place(x=120, y=120)
@@ -31,9 +73,11 @@ def game():
 
         lb_time_result = Label(root, text=tempo, font="times 12", fg="white", bg="#023e8a")
         lb_time_result.place(x=240, y=150)
-        btn_resetar_jogo = Button(root, text="Sair do jogo", font="arial 10", padx=15, pady=5,
-                                  bg='#caf0f8', command= root.destroy)
+        btn_resetar_jogo = Button(root, text="Resetar Jogo", font="arial 10", padx=15, pady=5,
+                                  bg='#caf0f8', command= lambda: [root.destroy(), game()])
         btn_resetar_jogo.place(x=350, y=250)
+        
+    
 
     timer = Timer()
 
@@ -58,6 +102,8 @@ def game():
         if entry.get() == frases[word]:
             end = Timer()
             resultados(end - timer)
+            # root.destroy()
+            # root.mainloop()
         elif entry.get() != frases[word]:
             print("Palavra errada!")
 
