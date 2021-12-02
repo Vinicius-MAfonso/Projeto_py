@@ -31,6 +31,7 @@ def sair():
 def game():
 
     def resultados(tempo):
+        
         menorTempo = 100
         niveis = ['Bom', 'Mediano', 'Ruim']
         if tempo < 6:
@@ -72,9 +73,11 @@ def game():
 
         lb_time_result = Label(root, text=tempo, font="times 12", fg="white", bg="#023e8a")
         lb_time_result.place(x=240, y=150)
-        btn_resetar_jogo = Button(root, text="Sair do jogo", font="arial 10", padx=15, pady=5,
-                                  bg='#caf0f8', command= root.destroy)
+        btn_resetar_jogo = Button(root, text="Resetar Jogo", font="arial 10", padx=15, pady=5,
+                                  bg='#caf0f8', command= lambda: [root.destroy(), game()])
         btn_resetar_jogo.place(x=350, y=250)
+        
+    
 
     timer = Timer()
 
@@ -99,6 +102,8 @@ def game():
         if entry.get() == frases[word]:
             end = Timer()
             resultados(end - timer)
+            # root.destroy()
+            # root.mainloop()
         elif entry.get() != frases[word]:
             print("Palavra errada!")
 
